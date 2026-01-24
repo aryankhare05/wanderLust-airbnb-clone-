@@ -22,8 +22,9 @@ app.set("views", path.join(__dirname,"views"));
 app.use(express.urlencoded({extended: true}));
 
 
-app.get("/", (req, res) => {
-    res.send("Hey there! i am Aryan khare");
+app.get("/list", async (req, res) => {
+    const list = await Listing.find().sort("title");
+    res.send(list);
 });
 //index route
 app.get("/listings", async (req,res)=>{
