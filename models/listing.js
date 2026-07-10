@@ -8,22 +8,6 @@ const listingSchema = new Schema({
     required: true,
   },
   description: String,
-  // image: {
-  //   filename: {
-  //     type: String,
-  //     default: "listingimage",
-  //   },
-  //   url: {
-  //     type: String,
-  //     default:
-  //       "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=974&auto=format&fit=crop",
-  //     //ternary operator
-  //     set: (v) =>
-  //       v === ""
-  //         ? "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=974&auto=format&fit=crop"
-  //         : v,
-  //   },
-  // }
   image: {
     url: String,
     filename: String,
@@ -46,11 +30,9 @@ const listingSchema = new Schema({
     type: {
       type: String,
       enum: ['Point'],
-      // required: true,
     },
     coordinates: {
       type: [Number],
-      // required: true,
     },
   },
 });

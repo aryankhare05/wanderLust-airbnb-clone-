@@ -62,9 +62,9 @@ const sessionOptions = {
   },
 };
 
-// app.get("/", async (req, res) => {
-//   res.send("hello this is root");
-// });
+app.get("/", async (req, res) => {
+  res.redirect("/listings");
+});
 
 app.use(session(sessionOptions));
 app.use(flash());
