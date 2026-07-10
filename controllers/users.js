@@ -1,6 +1,6 @@
 const User = require("../models/user");
 
-module.exports.signUp = async (req, res) => {
+module.exports.signUp = async (req, res, next) => {
     try {
       let { username, email, password } = req.body;
       const newUser = new User({ email, username });
@@ -11,11 +11,11 @@ module.exports.signUp = async (req, res) => {
           return next(err);
         }
         req.flash("success", "Welcome to Wanderlust!");
-        res.redirect("/listings");
+        return res.redirect("/listings");
       });
     } catch (e) {
       req.flash("error", e.message);
-      res.redirect("/signup");
+      return res.redirect("/signup");
     }
   }
 
